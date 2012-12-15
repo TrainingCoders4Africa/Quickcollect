@@ -1,0 +1,42 @@
+
+
+<model>
+       <data>
+	        <input id="" type="textview">
+               <label> titre enquete</label>
+			</input>
+			<input id="" type="texte">
+			   <label>Votre Nom</label>
+			</input>
+			<input id="" type="texte">
+			   <label>Votre Prenom</label>   
+			</input>
+            <input id="" type="select">
+			   <label>Votre Nom</label> 
+               <options>
+                       <value> option1</value>
+                       <value> option2</value>
+                       <value> option3</value>
+               </options>
+			</input>
+			<input id="" type="paragraphe">
+			    <label>texte label</label>
+			</input>
+			<input id="" type="spinner">
+			    <label>texte</label>
+				<options>
+				        <value> option1</value>
+                        <value> option2</value>
+                        <value> option3</value>
+				</options>
+			<input id="" type="radio">
+			    <label>texte label </label>
+				<options>
+				        <value> option1</value>
+                        <value> option2</value>
+                        <value> option3</value>
+				</options>
+		</data>
+</model>
+             			   
+			
