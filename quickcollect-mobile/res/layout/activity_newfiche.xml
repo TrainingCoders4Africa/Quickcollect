@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutFiche"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/nameenquete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        
+        />
+    <EditText 
+            android:id="@+id/idenqueteur"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/idenqueteur"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp"
+           />
+    
+    <TextView 
+        android:id="@+id/labelr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        
+        />
+    
+    <TextView android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#dc6800"/>
+    <EditText 
+       android:id="@+id/question"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       
+       
+       />
+    <Button 
+        android:text="Suivant"
+        android:id="@+id/suivant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        
+        />
+
+  
+  <TextView android:id="@+id/idr"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            />
+   <TextView 
+            android:id="@+id/idquestion"
+             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+           />
+     <TextView android:id="@+id/typequestion"
+             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+           />
+    
+</LinearLayout>

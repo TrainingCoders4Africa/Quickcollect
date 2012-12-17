@@ -1,0 +1,39 @@
+<data count="4" nameenquete="Enquete sur le lavage des mains à Dakar">
+         
+            <input>
+             <idr>1</idr>
+             <labelr>Identification</labelr>
+			 <id>1</id>
+			 <type>texte</type>
+			 <label>Nom du Chef de Famille</label>
+			</input>
+			<input>
+			  <idr>1</idr>
+             <labelr>Identification</labelr>
+			 <id>2</id>
+			 <type>texte</type>
+			 <label>Nombre epouses</label>
+			</input>
+			
+		
+			<input>
+			 <idr>2</idr>
+             <labelr>Informations sur lavage des mains</labelr>
+			 <id>1</id>
+			 <type>texte</type>
+			 <label>Combien de fois lave tu tes mains dans la journée</label>
+			 </input>
+			 	
+			<input>
+			 <idr>2</idr>
+             <labelr>Informations sur lavage des mains</labelr>
+			 <id>2</id>
+			 <type>texte</type>
+			 <label>Quartier</label>
+			</input>
+				
+			
+</data>
+
+             			   
+			

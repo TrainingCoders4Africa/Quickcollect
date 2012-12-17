@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+   <item
+        android:id="@+id/add"
+        android:icon="@drawable/plus"
+        android:showAsAction="ifRoom"
+        android:title="@string/newfiche"/>
+    <item
+        android:id="@+id/edit"
+        android:icon="@drawable/supp"
+        android:showAsAction="ifRoom"
+        android:title="@string/editfiche"/>
+    <item
+        android:id="@+id/supp"
+        android:icon="@drawable/supp"
+        android:showAsAction="ifRoom"
+        android:title="@string/suppfiche"/>
+    
+    <item android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>

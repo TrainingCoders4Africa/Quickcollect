@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">QuickCollect</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="texte">QuickCollect</string>
+    <string name="newfiche">ADD</string>
+    <string name="editfiche">Editer</string>
+    <string name="suppfiche">Supprimer Fiche Enegistré</string>
+    <string name="quit">Quitter</string>  
+    <string name="idenqueteur">Taper Votre ID Enqueteur</string>
+
+</resources>
