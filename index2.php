@@ -58,34 +58,43 @@
 	<div class="main">
 		<nav>
 			<ul id="menu">
-				<li class="menu_active nav1">
-				  <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-				    <tr>
-				      <td>ff</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>&nbsp;</td>
-				      <td>fff</td>
-			        </tr>
-				    <tr>
-				      <td>&nbsp;</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>vfvv</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>&nbsp;</td>
-				      <td>fvv</td>
-			        </tr>
-			      </table>
-				</li>
+				<li class="menu_active nav1"><a href="#page_Contacts">Connexion </a></li>
 			</ul>
-			<p>bas</p>
-        </nav>
+		</nav>
 <!-- content -->
+		<section id="content">
+		  <div id="page_Contacts">
+	    <h2>Connexion Administrateur</h2>
+				<div class="wrapper">
+					<div class="col3">
+						<div class="box1_bot">
+							<div class="box1_left">
+								<div class="box1_right">
+									<div class="box1">
+										<div class="pad">
+<form id="ContactForm"  name="ContactForm" method="post" action="fichier.php?action=connexion">
+												<div>
+													<div class="wrapper"><span>Login:</span>
+							            <input name="lg" type="text" class="input" id="lg" ></div>
+													<div class="wrapper"><span>Mot de passe:</span>
+											      <input name="pwd" type="password" class="input" id="pwd" ></div>
+												  <div class="wrapper"></div>
+													<p><a href="#" class="button" onClick="document.getElementById('ContactForm').submit()"><span class="shadow"></span>Send</a>
+													  <a href="#" class="button" onClick="document.getElementById('ContactForm').reset()"><span class="shadow"></span>Clear</a>												    </p>
+<p>
+						    <?php if($_GET['valid'] != null){if($_GET['valid'] == 'faut'){ echo "Compte inconnu.<br> Vérifier bien votre login et mot de passe"; } }?>
+						    </p>
+                                                </div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 <!-- / content -->
 	</div>
 </div>
@@ -94,7 +103,7 @@
 		<div class="main">
 <!-- footer -->
 			<footer>
-				<a href="#page_Home" id="footer_logo">Biz Time</a>kkkkkkk
+				<a href="#page_Home" id="footer_logo">Biz Time</a>
 				<div><a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">www.templatemonster.com</a></div>
 			</footer>
 <!-- / footer -->

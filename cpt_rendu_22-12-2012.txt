@@ -1,0 +1,23 @@
+1 - Identifier l'enquêteur avant de commencer l'enquête (login et pwd).
+
+2 - Gérer les modifications du fichier XML.
+
+3 - Avoir la possiblité d'avoir beaucoups de fiches d'enquêtes sur un même divice (Exe : effectuer 2 enquêtes différent en même temps).
+
+4 - Gérer les rectrictions sur les champs à entrer.
+
+5 - Définir la taille des type des champs.
+
+6 - Ex: utiliser des expression réguriere et avec des messages.
+
+7 - Aprés ton login, avoir la liste de tes fiches d'enquêtes.
+
+8 - Possibilité d'envoyer tous les fichers en même temps
+
+9 - Définir un seuil pour les envois pour économiser par rapport aux coûts de connections internet.
+
+10 - Compleser les données avant l'envoi pour obtiniser.
+
+11 - Faire un contrôle sur la base de données avant l'enregistrement.
+
+12 - Possibilité de suspendre une enquête et de passer à une autre; et aussi de revenir pour continue.

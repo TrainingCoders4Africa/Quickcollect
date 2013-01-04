@@ -1,4 +1,25 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+	$login = isset($_GET['login'])?$_GET['login']:$_SESSION['login'];
+	$_SESSION['login'] = $login;
+	
+	$typ_user = isset($_GET['typ_user'])?$_GET['typ_user']:$_SESSION['typ_user'];
+	$_SESSION['typ_user']=$typ_user;
+	
+	//require_once 'fonctions/connec.inc.php';
+	
+	require('./fonctions.php');
+	
+	//include('./fonctions.php');
+	
+	//Etablissons la connexion au serveur de base de donnees
+	$con=new health();
+	$con->Connexion();
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en" class="page">
 <head>
 <title>Biz Time</title>
@@ -25,6 +46,12 @@
 	<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0" alt="" /></a>
 </div>
 <![endif]-->
+<style type="text/css">
+<!--
+.rouge {color: #F00;
+}
+-->
+</style>
 </head>
 <body class="body">
 <div class="body1">
@@ -61,29 +88,103 @@
 				<li class="menu_active nav1">
 				  <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
 				    <tr>
-				      <td>ff</td>
-				      <td>&nbsp;</td>
+				      <td colspan="2" align="center"><form name="form_ques" method="POST" action="fichier.php?action=insertionpersonnel" class="form-inline well">
+				        <input type="hidden" name="nbr_ques" id="nbr_ques" value="<?php echo "1"; ?>">
+				        <div id="div_rub">
+				          <p></p>
+				          <div id="questions">
+				            <div id="div_ques_1">
+				              <table width="76%" align="center">
+				                <tr>
+				                  <th colspan="2"><p>Enregistrement Personnel</p>
+				                    <p>
+				                      <?php if($_GET['valid'] == 'Login') echo "Insertion reussie" ?>
+			                        </p></th>
+			                    </tr>
+				                <tr>
+				                  <th><label for="nom">Nom <span class="rouge">*</span></label></th>
+				                  <td><input required="true" id="nom" name="nom" placeholder="Nom" style="text-align: left; " dir="ltr"></td>
+			                    </tr>
+				                <tr>
+				                  <th><label for="prenom">Prénom <span class="rouge">*</span></label></th>
+				                  <td><input required="true" id="prenom" name="prenom" placeholder="Prénom" style="text-align: left; " dir="ltr"></td>
+			                    </tr>
+				                <tr>
+				                  <th><label for="tel">Téléphone <span class="rouge">*</span></label></th>
+				                  <td><input required="true" id="tel" name="tel" placeholder="Téléphone" style="text-align: left; " dir="ltr"></td>
+			                    </tr>
+				                <tr>
+				                  <th><label for="fct">Fonction <span class="rouge">*</span></label></th>
+				                  <td><span class="shehese">
+				                    <?php
+	$resultat=$con->Execute("Select FONC_ID as id, FONC_LIB as libelle from fonction ",$con);
+    $con->AfficheZoneListe('fonction',$resultat)or mysql_error();
+	  ?>
+				                    </span></td>
+			                    </tr>
+				                <tr>
+				                  <th><span>Adresse</span></th>
+				                  <td><input id="adresse" name="adresse" placeholder="Adresse" style="text-align: left; " dir="ltr"></td>
+			                    </tr>
+			                  </table>
+				              <p>
+				                <input class="btn btn-primary btn-large" type="submit" value="Enregistrer" name="valider" id="valider"/>
+				                <input class="btn btn-primary btn-large" type="reset" value="Effacer" name="effacer" id="effacer"/>
+			                  </p>
+			                </div>
+			              </div>
+			            </div>
+			          </form></td>
 			        </tr>
 				    <tr>
 				      <td>&nbsp;</td>
-				      <td>fff</td>
-			        </tr>
-				    <tr>
 				      <td>&nbsp;</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>vfvv</td>
-				      <td>&nbsp;</td>
-			        </tr>
-				    <tr>
-				      <td>&nbsp;</td>
-				      <td>fvv</td>
 			        </tr>
 			      </table>
 				</li>
+				<li class="menu_active nav1"> </li>
 			</ul>
-		</nav>
+			<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td colspan="6" align="center" bgcolor="#CCCCCC">Liste du personnel</td>
+		      </tr>
+			  <tr bgcolor="#5398FF">
+			    <td class="sxsqxsqx">Prénom</td>
+			    <td><span class="sxsqxsqx">Nom</span></td>
+			    <td><span class="sxsqxsqx">téléphone</span></td>
+			    <td><span class="sxsqxsqx">Fonction</span></td>
+			    <td><span class="sxsqxsqx">Adresse</span></td>
+			    <td>&nbsp;</td>
+		      </tr>
+			  <tr>
+			    <?php
+	
+	
+
+	$resultat=$con->Execute("Select PERS_ID, FONC_ID, PERS_NOM, PERS_PRENOM, PERS_TEL, PERS_ADDR from    personnel");
+
+
+    while($info = mysql_fetch_array($resultat))
+	{
+	 
+	  ?>
+			    <td class="sxsqxsqx"><?php echo $info['PERS_PRENOM']; ?></td>
+			    <td><?php echo $info['PERS_NOM']; ?></td>
+			    <td><?php echo $info['PERS_TEL']; ?></td>
+			    <td><?php  $fourn=$con->Execute("Select FONC_ID, FONC_LIB from fonction where FONC_ID = '".$info['FONC_ID']."'"); $rst = mysql_fetch_array($fourn); echo $rst['FONC_LIB']; ?></td>
+			    <td><?php echo $info['PERS_ADDR']; ?></td>
+			    <td>modifier</td>
+		      </tr>
+			  <?php
+		 }	
+
+		/* mysql_free_result($resultat); 
+	    mysql_close(); 
+		*/
+		?>
+		  </table>
+			<p>&nbsp;</p>
+      </nav>
 <!-- content -->
 <!-- / content -->
 	</div>
@@ -94,7 +195,7 @@
 <!-- footer -->
 			<footer>
 				<a href="#page_Home" id="footer_logo">Biz Time</a>
-				<div><a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">www.templatemonster.com</a></div>
+				<div><a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">Copyright &copy; I-Dev</a></div>
 			</footer>
 <!-- / footer -->
 		</div>

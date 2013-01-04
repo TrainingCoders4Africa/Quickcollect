@@ -116,92 +116,59 @@
     </style>
     </head>
 <body>
-<form name="form_ques" method="POST" action="fichier.php?action=insertionpersonnel" class="form-inline well">
-  <input type="hidden" name="nbr_ques" id="nbr_ques" value="<?php echo "1"; ?>">
+<form name="form_ques" method="POST" action="fichier.php?action=modificationpersonnel&idperson=<?php echo $_GET['idfour']; ?>&dggd=76" class="form-inline well">
+  <a href="personnel.php"><img src="images/upcoming-work.png" width="32" height="32"></a>
   <div id="div_rub">
     <p></p>
+  <?php  
+  //recuperation idpersonne
+  $idperson = $_GET['idfour'];
+    //Recupere les valeurs a modifier
+   $sql = "select PERS_ID, PERS_NOM, PERS_PRENOM, PERS_TEL, PERS_ADDR from personnel where  PERS_ID ='".$idperson."'";
+   
+   $resultat1 = $con->Execute($sql)or @die(mysql_error());
+   
+    $info = mysql_fetch_array($resultat1)
+	
+    ?>
     <div id="questions">
       <div id="div_ques_1">
         <table width="39%" align="center">
           <tr>
-            <th colspan="2"><p>Enregistrement Personnel</p>
-            <p><?php if($_GET['valid'] != null){if($_GET['valid'] == 'Login'){ echo "Insertion reussie"; } else{ echo "Insertion non reussie"; } }?></p></th>
+            <th colspan="2"><p>Modification  <?php echo $info['PERS_PRENOM']; echo " "; echo $info['PERS_NOM']; ?></p>
+            <p><?php if($_GET['valid'] != null){if($_GET['valid'] == 'ok'){ echo "Modification reussie"; } else{ echo "Modification non reussie"; } }?></p></th>
           </tr>
           <tr>
-            <th><label for="nom">Nom <span class="rouge">*</span></label></th>
-            <td><input required="true" id="nom" name="nom" placeholder="Nom" style="text-align: left; " dir="ltr"></td>
+            <th width="24%"><label for="nom">Nom <span class="rouge">*</span></label></th>
+            <td width="76%"><input name="nom" id="nom" style="text-align: left; " dir="ltr" value="<?php  echo $info['PERS_NOM']; ?>" required="true" placeholder="Nom"></td>
           </tr>
           <tr>
             <th><label for="prenom">Prénom <span class="rouge">*</span></label></th>
-            <td><input required="true" id="prenom" name="prenom" placeholder="Prénom" style="text-align: left; " dir="ltr"></td>
+            <td><input name="prenom" id="prenom" style="text-align: left; " dir="ltr" value="<?php  echo $info['PERS_PRENOM']; ?>" required="true" placeholder="Prénom"></td>
           </tr>
           <tr>
             <th><label for="tel">Téléphone <span class="rouge">*</span></label></th>
-            <td><input required="true" id="tel" name="tel" placeholder="Téléphone" style="text-align: left; " dir="ltr"></td>
+            <td><input name="tel" id="tel" style="text-align: left; " dir="ltr" value="<?php  echo $info['PERS_TEL']; ?>" required="true" placeholder="Téléphone"></td>
           </tr>
           <tr>
-            <th>Adresse</th>
-            <td><input id="adresse" name="adresse" placeholder="Adresse" style="text-align: left; " dir="ltr"></td>
+            <th><span>Adresse</span></th>
+            <td><input name="adresse" id="adresse" style="text-align: left; " dir="ltr" value="<?php  echo $info['PERS_ADDR']; ?>" placeholder="Adresse">
+            <input name="idperson" type="hidden" id="idperson" value="<?php  $info['PERS_ID'] ?>"></td>
+            
           </tr>
-          <tr>
-            <th>&nbsp;</th>
-            <td>&nbsp;</td>
-          </tr>
+          
         </table>
         <p>
-          <input class="btn btn-primary btn-large" type="submit" value="Enregistrer" name="valider" id="valider"/>
-          <input class="btn btn-primary btn-large" type="reset" value="Effacer" name="effacer" id="effacer"/>
+          <input class="btn btn-primary btn-large" type="submit" value="Modifier" name="valider" id="valider"/>
         </p>
       </div>
     </div>
+    
   </div>
-  <a href="index.html"><img src="images/upcoming-work.png" width="32" height="32"></a>
+  <a href="index.html"></a>
 </form>
-<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td colspan="5" align="center" bgcolor="#CCCCCC">Liste du personnel</td>
-  </tr>
-  <tr bgcolor="#5398FF">
-    <td class="sxsqxsqx">Prénom</td>
-    <td><span class="sxsqxsqx">Nom</span></td>
-    <td><span class="sxsqxsqx">téléphone</span></td>
-    <td><span class="sxsqxsqx">Adresse</span></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-  
-  <?php
-	
-	
-
-	$resultat=$con->Execute("Select PERS_ID, PERS_NOM, PERS_PRENOM, PERS_TEL, PERS_ADDR from    personnel");
-
-
-    while($info = mysql_fetch_array($resultat))
-	{
-	 
-	  ?>
-		
-  
-  
-    <td class="sxsqxsqx"><?php echo $info['PERS_PRENOM']; ?></td>
-    <td><?php echo $info['PERS_NOM']; ?></td>
-    <td><?php echo $info['PERS_TEL']; ?></td>
-    <td><?php echo $info['PERS_ADDR']; ?></td>
-    <td><a href="modifier-personnel.php?idfour=<?php echo $info['PERS_ID']; ?>"><img src="images/modifier.JPG" width="22" height="25"></a></td>
-  </tr>
-  
-  <?php
-		 }	
-
-		/* mysql_free_result($resultat); 
-	    mysql_close(); 
-		*/
-		?>  
-      </table>
-  
-  <tr>
-    <td class="sxsqxsqx">&nbsp;</td>
+<tr>
+<td class="sxsqxsqx">&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
