@@ -1,7 +1,6 @@
 package enquete.quickcollect.database;
 
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -15,7 +14,7 @@ public class BaseReponsesFiches extends SQLiteOpenHelper {
 	private static final String COL_REP = "Reponse";
  
 	private static final String CREATE_BDD = "CREATE TABLE " + TABLE_REPONSES + " ("
-	+ COL_ID + " INTEGER, " + COL_ENQTEUR + " TEXT NOT NULL, " + COL_RUBR + " TEXT NOT NULL, " + COL_IDQUES + " TEXT NOT NULL, "
+	+ COL_ID + " String, " + COL_ENQTEUR + " TEXT NOT NULL, " + COL_RUBR + " TEXT NOT NULL, " + COL_IDQUES + " TEXT NOT NULL, "
 	+ COL_REP + " TEXT NOT NULL);";
 	public BaseReponsesFiches(Context context, String name,
 			CursorFactory factory, int version) {
@@ -35,6 +34,7 @@ public class BaseReponsesFiches extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		db.execSQL("DROP TABLE " + TABLE_REPONSES + ";");
+		
 		onCreate(db);
 
 	}

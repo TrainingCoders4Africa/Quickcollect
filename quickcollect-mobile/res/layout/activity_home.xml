@@ -2,15 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+     android:background="@color/LightSkyBlue"
     android:layout_gravity="center_vertical|center_horizontal"
-    android:background="#FF555555"
-    android:orientation="vertical" >
-
-    <ImageView
-        android:id="@+id/imagehome"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:src="@drawable/home" />
-
+    android:orientation="vertical">
+   <ImageView 
+      android:id="@+id/quick"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:layout_gravity="center_vertical|center_horizontal"     
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/quick" 
+       />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   android:layout_gravity="center_vertical|center_horizontal"
+    android:background="@color/white"
+    
+     >
+  <TextView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/identifiantenqeteur"
+      android:text="@string/idenqueteur"
+      android:layout_gravity="center_vertical|center_horizontal"
+      android:paddingTop="10dp"
+      android:paddingBottom="20dp"
+      />
+  <EditText 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/enqueteur"
+      android:layout_gravity="center_vertical|center_horizontal"
+      android:hint="@string/enq"
+      android:paddingBottom="20dp"
+      />
+  <Button 
+      android:id="@+id/valider"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical|center_horizontal"
+      android:text="@string/valider"
+      
+      
+      />
+  </LinearLayout>
+  
 </LinearLayout>

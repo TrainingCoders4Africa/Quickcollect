@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     
    <item
         android:id="@+id/add"
         android:icon="@drawable/plus"
-        android:showAsAction="ifRoom"
-        android:title="@string/newfiche"/>
-    <item
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/newfiche"
+   />
+   <item
+        android:id="@+id/liste"
+        android:icon="@drawable/liste"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/listefiche" 
+    />
+  <!--    <item
         android:id="@+id/edit"
         android:icon="@drawable/supp"
-        android:showAsAction="ifRoom"
-        android:title="@string/editfiche"/>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/editfiche" 
+    /> -->
     
 </menu>

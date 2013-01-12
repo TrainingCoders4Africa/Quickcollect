@@ -1,18 +1,21 @@
-<data count="4" nameenquete="Enquete sur le lavage des mains à Dakar">
+<data count="5" nameenquete="Enquete sur le lavage des mains à Dakar">
          
             <input>
              <idr>1</idr>
              <labelr>Identification</labelr>
 			 <id>1</id>
 			 <type>texte</type>
+			 <format>alphanumeric</format>
 			 <label>Nom du Chef de Famille</label>
 			</input>
 			<input>
 			  <idr>1</idr>
              <labelr>Identification</labelr>
 			 <id>2</id>
-			 <type>texte</type>
+			 <type>spinner</type>
+			 <format>numeric</format>
 			 <label>Nombre epouses</label>
+			 <values>1,2,3,4</values>
 			</input>
 			
 		
@@ -21,6 +24,7 @@
              <labelr>Informations sur lavage des mains</labelr>
 			 <id>1</id>
 			 <type>texte</type>
+			 <format>numeric</format>
 			 <label>Combien de fois lave tu tes mains dans la journée</label>
 			 </input>
 			 	
@@ -29,8 +33,18 @@
              <labelr>Informations sur lavage des mains</labelr>
 			 <id>2</id>
 			 <type>texte</type>
+			 <format>alphanumeric</format>
 			 <label>Quartier</label>
 			</input>
+			<input nbre="3">
+			 <idr>2</idr>
+             <labelr>Informations sur lavage des mains</labelr>
+			 <id>3</id>
+			 <type>spinner</type>
+			 <format>alphanumeric</format>
+			 <label>Nombre d'enfants</label>
+			 <values>1,2,3,4,5,6</values>
+			</input> 
 				
 			
 </data>

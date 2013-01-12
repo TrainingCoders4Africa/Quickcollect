@@ -13,5 +13,9 @@
     <string name="suppfiche">Supprimer Fiche Enegistré</string>
     <string name="quit">Quitter</string>  
     <string name="idenqueteur">Taper Votre ID Enqueteur</string>
-
-</resources>
+    <string name="listefiche">Listes Fiches</string>
+    <string name="enq">Votre ID Enqueteur</string>
+    <string name="valider">Valider</string>
+    <string name="nom">NOM:</string>
+    <string name="prenom">Prenom:</string>
+</resources> 
