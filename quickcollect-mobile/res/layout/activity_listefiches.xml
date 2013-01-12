@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="2dp"
+    android:orientation="vertical" 
+    android:scrollbars="vertical" 
+    android:background="@color/blue"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    >
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/LightSkyBlue" 
+        android:paddingBottom="5dp"
+        >
+   <ImageView
+        android:id="@+id/logofiche"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/liste" >
+    </ImageView>
+    <TextView
+        android:id="@+id/labellefiche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/labellefiche"
+        android:layout_gravity="center_vertical|right"
+        android:layout_toRightOf="@id/logofiche"
+        android:textSize="12dp"  />
+   
+     </RelativeLayout>
+</LinearLayout>

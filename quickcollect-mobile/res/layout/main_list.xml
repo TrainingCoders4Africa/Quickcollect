@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:orientation="vertical"
+	android:padding="2dp"  
+    android:background="@color/LightSkyBlue"
+    android:scrollbars="vertical"
+	android:scrollbarAlwaysDrawVerticalTrack="true"
+	>
+<LinearLayout 
+	   android:layout_width="fill_parent" 
+	   android:layout_height="40dp" 
+	   android:orientation="horizontal"
+	   android:id="@+id/lin"
+	   android:background="@color/blue"
+	    >
+	<TextView 
+	   android:id="@+id/textlist"
+       android:layout_width="0dp"
+       android:layout_height="40dp"
+       android:text="LISTES DES FICHES"
+       android:gravity="left" 
+       android:layout_weight="7"
+       
+	    />
+	<RelativeLayout 
+	   android:layout_width="wrap_content" 
+	   android:layout_height="40dp" 
+	   android:orientation="horizontal"
+	   android:gravity="right"
+	   android:layout_weight="3"
+	    >
+		<Button
+      android:id="@+id/modifier"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="left"
+      android:text="Modifier" />
+	<Button
+      android:id="@+id/supprimer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/modifier"
+      android:gravity="center"
+      android:text="Supprimer" />
+	<Button
+      android:id="@+id/envoie"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/supprimer"
+      android:gravity="right"
+      android:text="Send" />    
+	    
+	</RelativeLayout>
+	
+	</LinearLayout>
+	<TextView 
+	   android:id="@+id/selection"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:visibility="invisible"
+	    />
+
+	<ListView 
+	    android:id="@android:id/list" 
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent" 
+		android:layout_below="@+id/lin"
+		android:padding="5dp"
+		android:choiceMode="singleChoice"
+		android:scrollbars="vertical"
+		android:scrollbarAlwaysDrawVerticalTrack="true"
+		/>
+	
+	
+    
+</RelativeLayout>
