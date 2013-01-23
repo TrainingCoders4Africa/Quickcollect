@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Généré a l'aide de php5-->
+<data nameenquete="ENQUETE 2" count="7">
+  <input>
+    <idr>3</idr>
+    <labelr>rub 1 enq 2</labelr>
+    <id>38</id>
+    <type>texte</type>
+    <label>Nouvelle Question</label>
+  </input>
+  <input>
+    <idr>3</idr>
+    <labelr>rub 1 enq 2</labelr>
+    <id>37</id>
+    <type>texte</type>
+    <label>Nouvelle Qu</label>
+  </input>
+  <input>
+    <idr>3</idr>
+    <labelr>rub 1 enq 2</labelr>
+    <id>36</id>
+    <type>case a cocher</type>
+    <label>Question 1</label>
+  </input>
+  <input>
+    <idr>4</idr>
+    <labelr>rub 2 enq 2</labelr>
+    <id>35</id>
+    <type>texte</type>
+    <label>Nouvelle Question</label>
+  </input>
+  <input>
+    <idr>4</idr>
+    <labelr>rub 2 enq 2</labelr>
+    <id>25</id>
+    <type>case a cocher</type>
+    <label>Nouvelle Question</label>
+  </input>
+  <input>
+    <idr>4</idr>
+    <labelr>rub 2 enq 2</labelr>
+    <id>31</id>
+    <type>texte</type>
+    <label>Nouvelle Question</label>
+  </input>
+  <input>
+    <idr>5</idr>
+    <labelr></labelr>
+    <id>43</id>
+    <type>texte</type>
+    <label>Nouvelle Question</label>
+  </input>
+</data>
