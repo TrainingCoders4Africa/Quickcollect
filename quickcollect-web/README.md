@@ -1,4 +1,0 @@
-Quickcollect
-============
-
-Quickcollect
