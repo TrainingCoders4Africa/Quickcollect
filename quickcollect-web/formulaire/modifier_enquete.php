@@ -4,13 +4,11 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="screen.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="../style/design.css" rel="stylesheet" type="text/css" media="screen"/>
-    <script type="text/javascript" src="../script/jquery.js"></script>
-    <script type="text/javascript" src="../script/fonction3.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
     <?php 
-   	   include_once '../fonctions/connec.inc.php';
-       include_once '../fonctions/requetes.php';
-       include_once '../script/fonction.php';
-       include_once 'gestion_enquete.php';
+   	   include_once 'connec.inc.php';
+       include_once 'requetes.php';
+       include_once 'fonction.php';
     ?>
 <center><h1 style="color:#00F;">ENQUETES</h1>
 </head>
@@ -65,7 +63,7 @@
 						echo '</select></td>';	
 					?>
                     <td>
-                    <a href="../fonctions/modif_categorie.php" style="cursor: pointer;"><u>Modifier</u></a>
+                    <a href="modif_categorie.php?prec=modif&id=<?php echo $num;?>" style="cursor: pointer;"><u>Modifier</u></a>
                     </td>
 			</tr>
 			<tr>
@@ -83,10 +81,10 @@
 							echo">".htmlentities($row2[1])."</option>";	
 							$i++;
 					}
-						echo '</select></td>';	
+						echo '</select></td>';
 					?>
                 <td>
-                <a href="../fonctions/modif_societe.php"><u>Modifier</u></a>
+                <a href="modif_societe.php?prec=modif&id=<?php echo $num;?>"><u>Modifier</u></a>
                     </td>
 			</tr>
 			
@@ -104,9 +102,7 @@
     <input type="button" class="btn btn-primary bouton" name="visual" id="visual" value="<?php echo htmlentities("Visualiser l'enquête");?>" />
     <!--input type="button" class="btn btn-primary bouton" name="visual" id="visual" value="< ?php echo htmlentities("Visualiser l'enquête");?>" onclick="$('#mondiv').load('visualiser_enquete.php?id=< ?php echo $row[0]; ?>');"/-->
     </a>	
-
 </form>
-
 </div>
 <div style="clear:both;"></div>
 <p>

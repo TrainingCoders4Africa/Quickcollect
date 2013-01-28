@@ -4,12 +4,11 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="screen.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="../style/design.css" rel="stylesheet" type="text/css" media="screen"/>
-    <script type="text/javascript" src="../script/jquery.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
     <?php 
-   	   include_once '../fonctions/connec.inc.php';
-       include_once '../fonctions/requetes.php';
-       include_once '../script/fonction.php';
-       include_once 'gestion_enquete.php';
+   	   include_once 'connec.inc.php';
+       include_once 'requetes.php';
+       include_once 'fonction.php';
     ?>
   
 <center><h1 style="color:#00F;">ENQUETES</h1>
@@ -56,7 +55,7 @@
 						echo '</select></td>';	
 					?>
                     <td>
-                    <a href="../fonctions/modif_categorie.php"><u>Modifier</u></a>
+                    <a href="modif_categorie.php?prec=creation"><u>Modifier</u></a>
                     <!--a onclick="$('#mondiv').load('../fonctions/modif_categorie.php');" style="cursor: pointer;"><u>Modifier</u></a-->
                     </td>
 			</tr>
@@ -77,7 +76,7 @@
 						echo '</select></td>';	
 					?>
                 <td>
-                    <a href="../fonctions/modif_societe.php><u>Modifier</u></a>
+                    <a href="modif_societe.php?prec=creation><u>Modifier</u></a>
                     <!--a onclick="$('#mondiv').load('../fonctions/modif_societe.php');" style="cursor: pointer;"><u>Modifier</u></a-->
                 </td>
 			</tr>

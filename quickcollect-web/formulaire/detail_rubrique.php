@@ -4,11 +4,11 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="screen.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="../style/design.css" rel="stylesheet" type="text/css" media="screen"/>
-    <script type="text/javascript" src="../script/jquery.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
     <?php 
-   	   include_once '../fonctions/connec.inc.php';
-       include_once '../fonctions/requetes.php';
-       include_once '../script/fonction3.php';
+   	   include_once 'connec.inc.php';
+       include_once 'requetes.php';
+       include_once 'fonction.php';
        $ecod=intval($_GET['id']);
     $rese=select_enquete($ecod);
     $rowe=mysql_fetch_row($rese);
@@ -17,9 +17,10 @@
     $resr=select_rubrique($rcod);
     $row=mysql_fetch_row($resr);
     $libr=$row[2];
-    include_once 'gestion_enquete.php';
-       
-    ?>
+    
+    include_once 'enregistrement_rubrique.php';
+    
+   ?>
 
 <center>
 </head>
@@ -27,13 +28,13 @@
 <body style="width:100%" id="monbody">
 <p><a href="../index.html">Retour au menu</a></p>
 <a class="item" href="liste_enquetes.php"> 
-        <img class="icon" height="16" width="16" alt="" src="../images/.png" />
+        <img class="icon" height="16" width="16" alt="" src="../images/s_host.png" />
         Enqu&ecirc;tes
     </a>
     <span>
         <img class="icon" height="9" width="5" alt="-" src="../images/item_ltr.png"/>
     </span>
-    <a class="item"> 
+    <a class="item" href="detail_enquete.php?id=<?php echo $ecod;?>&lib=<?php echo $lib;?>"> 
         <?php echo $lib;?>
     </a>
     <span>
@@ -54,10 +55,9 @@
 	<center>
 	   	<table>
             <!--Le champ temoin est Utilisé pour supprimer une question de la rubrique en cours-->
-			<input type="hidden" name="temoin" id="temoin" value=""/>
-       
+			<!--input type="hidden" name="temoin" id="temoin" value=""/-->
             <tr>
-				<th>Libell&eacute; de la rubrique;(*) </th>
+				<th>Libell&eacute; de la rubrique:(*) </th>
 				<td><input type="text" name="rub_lib" id="rub_lib" value="<?php echo $libr;?>" style="width:75%;" placeholder="Libell&eacute; de votre rubrique" /></td>
 			</tr>
             <tr>
@@ -65,12 +65,10 @@
 				<td><input type="text" name="rub_rang" id="rub_rang" value="<?php echo $row[3];?>" style="width:75%;" placeholder="Libell&eacute; de votre rubrique" /></td>
 			</tr>
          </table>
-        <hr WIDTH=103% SIZE=3 color="#0000CC" />
+        <hr WIDTH="100%" SIZE="3" color="#0000CC" />
             
-        <table id="tab_rub">
+        <div id="div_rub">
             <?php 
-                //$req_ques="select * from `question` where `question`.`CHILD_ID`='$ncod'";
-				//$res_ques=mysql_query($req_ques)or die('Erreur SQL !'.$req_ques.'<br>'.mysql_error());
                 $res_ques=select_questions($rcod);
                 $cpt_ques=0;
 				while($row_ques=mysql_fetch_row($res_ques)){
@@ -78,9 +76,12 @@
                     $cpt_ques+=1;
                     //affichage de la question
                     ?>
+                    <hr SIZE="3" color="#4682B4"/>
+    
                     <div id="<?php echo 'div_ques_'.$cpt_ques;?>">
                     <table>
 				        <tr>
+                           <span><?php echo "Question $cpt_ques";?> </span> 
                            <input type="hidden" id="<?php echo 'qid_'.$cpt_ques; ?>" name="<?php echo 'qid_'.$cpt_ques; ?>" value="<?php echo $ques_cod; ?>"/> 
 					       <th><span>Intitul&eacute; de la question</span></th>
 					       <td><input type="text" value="<?php echo $row_ques[3]; ?>" id="<?php echo 'ques_'.$cpt_ques; ?>" name="<?php echo 'ques_'.$cpt_ques; ?>" placeholder="Nouvelle Question" style="text-align: left; " dir="ltr"/></td>
@@ -127,21 +128,21 @@
                 $typques=$row_ques[2];
                 switch ($typques){
                     case 1:
-                        include '../fonctions/rep_texte2.php'; 
+                        include 'rep_texte2.php'; 
                         break;
                     case 2:
-                        include '../fonctions/rep_paragraphe2.php';
+                        include 'rep_paragraphe2.php';
                         break;
                     case 3:
+                        echo "A venir";
                         echo "choix multiple";
                         echo "<br />";
-                        echo "A venir";
                         break;
                     case 4:
-                        include '../fonctions/rep_case2.php';
+                        include 'rep_case2.php';
                         break;
                     case 5:
-                        include '../fonctions/rep_liste2.php';
+                        include 'rep_liste2.php';
                         break;
                     case 6:
                         echo "Intervalle";
@@ -156,25 +157,29 @@
                 }
                 ?>
 			</div>
+            <br />
             <div>
-                <!--button onclick="supprimmer_question(< ?php echo $cpt_ques; ?>)">Supprimer question</button-->
-                <input class="btn btn-primary" type="submit" name="suppq" id="suppq" value="Supprimer question" onclick="if(!confirm('Attention! Voulez-vous vraiment supprimer cette question?')){return false;}else{document.getElementById('temoin').value='<?php echo $cpt_ques;?>';}"/> 
+                <a class="btn btn-primary bouton" onclick="if(confirm('Attention! Voulez-vous vraiment supprimer cette question?')){supprimer_question(<?php echo $cpt_ques; ?>);}" style="cursor: pointer;">Supprimer question</a>
                 <input type="checkbox" name="<?php echo "chk_".$cpt_ques; ?>" <?php if($row_ques[7]=='1') echo "checked='checked'";?>/>
 	            <label>Rendre la question obligatoire.</label>
+           
             </div>
             
             <br />
-            <hr />
+            
             <?php
             }      
             ?>
           </div>       
-        </table>
+        </div>
 	<br/>
+    <hr SIZE="3" color="#4682B4"/>
     <input type="hidden" name="nbr_ques" id="nbr_ques" value="<?php echo $cpt_ques; ?>"/>
     <input class="btn btn-primary bouton" type="submit" name="enrr" id="enrr" value="ENREGISTRER"/>
-	<input class="btn btn-primary bouton" type="submit" name="suppr" id="suppr" value="SUPPRIMER RUBRIQUE" onclick="if(!confirm('Attention! Voulez-vous vraiment supprimer cette rubrique avec toutes ses questions? Cette action est irr&eacute;versible.')) return false;"/>
-	<input class="btn btn-primary bouton" type="submit" name="nouvq" id="nouvq" value="NOUVELLE QUESTION"/>
+	<a class="btn btn-primary bouton" onclick="return confirmLink2(<?php echo $ecod;?>,<?php echo $rcod; ?>, 'Attention! Voulez-vous vraiment supprimer cette rubriques? Cette action est irr&eacute;versible.')" style="cursor: pointer;">
+    SUPPRIMER RUBRIQUE
+    </a>
+    <a class="btn btn-primary bouton" onclick="ajouter_question();" style="cursor: pointer;">NOUVELLE QUESTION</a>
 	
 	</center>
 	</form>

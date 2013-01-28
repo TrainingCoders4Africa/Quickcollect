@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Généré a l'aide de php5-->
-<data nameenquete="ENQUETE 2" count="7">
+<data nameenquete="ENQUETE 2" count="5">
   <input>
     <idr>3</idr>
     <labelr>rub 1 enq 2</labelr>
@@ -25,29 +25,15 @@
   <input>
     <idr>4</idr>
     <labelr>rub 2 enq 2</labelr>
-    <id>35</id>
-    <type>texte</type>
-    <label>Nouvelle Question</label>
-  </input>
-  <input>
-    <idr>4</idr>
-    <labelr>rub 2 enq 2</labelr>
-    <id>25</id>
-    <type>case a cocher</type>
-    <label>Nouvelle Question</label>
-  </input>
-  <input>
-    <idr>4</idr>
-    <labelr>rub 2 enq 2</labelr>
     <id>31</id>
     <type>texte</type>
     <label>Nouvelle Question</label>
   </input>
   <input>
-    <idr>5</idr>
-    <labelr></labelr>
-    <id>43</id>
-    <type>texte</type>
-    <label>Nouvelle Question</label>
+    <idr>4</idr>
+    <labelr>rub 2 enq 2</labelr>
+    <id>67</id>
+    <type>paragraphe</type>
+    <label></label>
   </input>
 </data>

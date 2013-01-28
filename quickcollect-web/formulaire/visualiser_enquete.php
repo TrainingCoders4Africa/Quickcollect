@@ -1,10 +1,10 @@
 <?php
-    include_once '../fonctions/connec.inc.php';
-    include_once '../fonctions/requetes.php';
+    include_once 'connec.inc.php';
+    include_once 'requetes.php';
     $ncod=intval($_GET['id']);
     $rese=select_enquete($ncod);
     $rowe=mysql_fetch_row($rese);
-        
+    $lib=$rowe[3];    
 ?>
 <center>
 <div id="enqueteinfo">
@@ -17,17 +17,22 @@
     </span>
     
     <a class="item"> 
+        <?php echo $lib;?>
+    </a>
+    <span>
+        <img class="icon" height="9" width="5" alt="-" src="../images/item_ltr.png"/>
+    </span>
+    
+    <a class="item"> 
         Visualisation
     </a>
 </div>
 <hr />
 <?php
-        $lib=$rowe[3];
+       
         ?>
-        
-            <h4><span><?php echo $rowe[3];?></span></h4>
-			
-        <?php
+            <h4><span><?php echo $lib;?></span></h4>
+		<?php
         //sélection des rubriques
          $resr=select_rubriques($ncod);
          while($rowr=mysql_fetch_row($resr)){

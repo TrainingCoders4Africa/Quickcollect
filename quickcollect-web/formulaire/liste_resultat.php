@@ -5,10 +5,10 @@
  * @copyright 2013
  */
 
-include_once '../fonctions/connec.inc.php';
-include_once '../fonctions/requetes.php';
-include_once '../fonctions/PHPExcel/Classes/PHPExcel.php';
-include_once '../fonctions/PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
+include_once 'connec.inc.php';
+include_once 'requetes.php';
+include_once 'PHPExcel/Classes/PHPExcel.php';
+include_once 'PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
 	
     //recuperation de la données envoyée en parametre
     $code = isset($_GET['code'])?$_GET['code']:""; 
@@ -25,9 +25,9 @@ include_once '../fonctions/PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
         $objPHPExcel->getProperties()->setDescription("Office 2007 XLSX – By DevZone – With PHPExel");
         //– Les Données
         $objPHPExcel->setActiveSheetIndex(0);
-        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Rubriques');
-        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Question');
-        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Cellules');
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'RUBRIQUES');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'QUESTIONS');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'REPONSES');
         
         $col=0; //colonnes dans le fichier Excel
         $lig=2; //lignes dans le fichier Excel
@@ -81,7 +81,7 @@ include_once '../fonctions/PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
         }
         echo "</table>";
         echo "<br />";
-        echo "<a href='../formulaire/download.php?fichier=Resultat.xlsx'><span>Exporter sous format Excel</span></a>";
+        echo "<a href='download.php?fichier=Resultat.xlsx'><span>Exporter sous format Excel</span></a>";
     }else{
         echo "Aucun Résultat";
     }

@@ -82,7 +82,8 @@
 													<p><a href="#" class="button" onClick="document.getElementById('ContactForm').submit()"><span class="shadow"></span>Send</a>
 													  <a href="#" class="button" onClick="document.getElementById('ContactForm').reset()"><span class="shadow"></span>Clear</a>												    </p>
 <p>
-						    <?php if($_GET['valid'] != null){if($_GET['valid'] == 'faut'){ echo "Compte inconnu.<br> Vérifier bien votre login et mot de passe"; } }?>
+						    <?php $_GET['valid']=''; ?>
+                            <?php if($_GET['valid'] != null){if($_GET['valid'] == 'faut'){ echo "Compte inconnu.<br> Vérifier bien votre login et mot de passe"; } }?>
 						    </p>
                                                 </div>
 											</form>
@@ -103,7 +104,7 @@
 		<div class="main">
 <!-- footer -->
 			<footer>
-				<a href="#page_Home" id="footer_logo">Biz Time</a>
+				<a href="#page_Home" id="footer_logo">QuickCollect</a>
 				<div><a href="http://www.templatemonster.com/" target="_blank" rel="nofollow">www.templatemonster.com</a></div>
 			</footer>
 <!-- / footer -->

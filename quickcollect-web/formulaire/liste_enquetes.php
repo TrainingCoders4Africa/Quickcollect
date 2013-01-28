@@ -4,12 +4,11 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="screen.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="../style/design.css" rel="stylesheet" type="text/css" media="screen"/>
-    <script type="text/javascript" src="../script/jquery.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
     <?php 
-   	   include_once '../fonctions/connec.inc.php';
-       include_once '../fonctions/requetes.php';
-       include_once '../script/fonction3.php';
-       include_once 'gestion_enquete.php';
+   	   include_once 'connec.inc.php';
+       include_once 'requetes.php';
+       include_once 'fonction.php';   
     ?>
 <center><h1 style="color:#00F;">ENQUETES</h1>
 </head>
@@ -17,8 +16,7 @@
 <body style="width:100%" id="monbody">
 <?php 
 if(isset($_GET['action']) && ($_GET['action']=='exporter') && (isset($_GET['id'])))
-{   include_once 'fonctions.php';   
-    $num = intval($_GET['id']);
+{   $num = intval($_GET['id']);
     exporter_enquete($num);
 }
 ?>
@@ -72,7 +70,7 @@ if(isset($_GET['action']) && ($_GET['action']=='exporter') && (isset($_GET['id']
                             <img class="icon" alt="Modifier" title="Modifier" src="../images/modifie.gif" />Modifier</a></td>
                         <td align="center">
                             <!--a onclick="$('#mondiv').load('detail_enquete.php?id=< ?php echo $row[0]; ?>');" style="cursor: pointer;"-->
-                            <a href="detail_enquete.php?id=<?php echo $row[0]; ?>&lib=<?php echo $row[3]; ?>">
+                            <a href="detail_enquete.php?id=<?php echo $row[0]; ?>">
                             <img class="icon" alt="D&eacute;tail" title="D&eacute;tail" src="../images/b_edit.png"/>
                             D&eacute;tail
                             </a>

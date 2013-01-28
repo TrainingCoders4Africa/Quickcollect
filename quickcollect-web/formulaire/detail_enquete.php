@@ -4,20 +4,20 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="screen.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="../style/design.css" rel="stylesheet" type="text/css" media="screen"/>
-    <script type="text/javascript" src="../script/jquery.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
     <?php 
-   	   include_once '../fonctions/connec.inc.php';
-       include_once '../fonctions/requetes.php';
-       include_once '../script/fonction3.php';
-       include_once 'gestion_enquete.php';
-       $ncod = intval($_GET['id']);
-       $nlib=$_GET['lib'];
+   	   include_once 'connec.inc.php';
+       include_once 'requetes.php';
+       include_once 'fonction.php';
+       $ecod = intval($_GET['id']);
+       $row_lib_enq=mysql_fetch_row(select_enquete($ecod));
+       $nlib=$row_lib_enq[3];
     ?>
 </head>
 
 <body style="width:100%" id="monbody">
 <center><h1 style="color:#00F;">ENQUETES</h1>
-<p><a href="../index.html">Retour</a></p>
+<p><a href="../index.html">Retour au menu</a></p>
 <div align="center" style="width:75%;" id="mondiv">
 
 <div id="enqueteinfo">
@@ -31,34 +31,18 @@
     <a class="item"> 
         <?php echo $nlib;?>
     </a>
-    <span>
-        <img class="icon" height="9" width="5" alt="-" src="../images/item_ltr.png"/>
-    </span>
-    <a class="item"> 
-        D&eacute;tail
-    </a>
+    
 </div>
 
 <hr />
 <div id="topmenucontainer">
     <ul id="topmenu">
         <li>
-           <a onclick="creer_rubrique(<?php echo $ncod;?>);" style="cursor: pointer;">Nouvelle rubrique</a>
+           <a onclick="creer_rubrique(<?php echo $ecod;?>);" style="cursor: pointer;">Nouvelle rubrique</a>
         </li>
     </ul>
 
 </div>
-<?php
-    include_once '../script/fonction.php';
-    
-    //<!-- début -->
-    if(isset($_POST['enrr']))
-	{	
-		 include '../fonctions/enregistrement_rubrique.php';
-	}
-    ?>
-   
-
 <div align="center" style="width:75%;" id="mondiv">
 
 <form id="tableForm" name="tableForm" action="#" method="POST" class="form-inline well">
@@ -72,7 +56,7 @@
         </thead>
         <tbody id="tbody">
             <?php
-            $res = select_rubriques($ncod);
+            $res = select_rubriques($ecod);
             $nbr_rubriques=mysql_num_rows($res);
             
             //r&eacute;cup&eacute;rer les enqu&ecirc;tes dans la base de donn&eacute;es
@@ -91,20 +75,20 @@
                             <label><?php echo $row[2]; ?></label>        
                         </th>
                         <td align="center">
-                            <a href="detail_rubrique.php?id=<?php echo $ncod; ?>&idr=<?php echo $row[0]; ?>&lib=<?php echo $row[3]; ?>">
+                            <a href="detail_rubrique.php?id=<?php echo $ecod; ?>&idr=<?php echo $row[0]; ?>">
                             <img class="icon" alt="D&eacute;tail" title="D&eacute;tail" src="../images/b_edit.png"/>
                             D&eacute;tail
                             </a>
                         </td>
                         <td align="center">
-                            <a onclick="return confirmLink2(<?php echo $row[0]; ?>, 'Attention! Voulez-vous vraiment supprimer cette enquete avec toutes ses rubriques? Cette action est irr&eacute;versible.')" style="cursor: pointer;">
+                            <a onclick="return confirmLink2(<?php echo $ecod;?>,<?php echo $row[0]; ?>, 'Attention! Voulez-vous vraiment supprimer cette rubriques? Cette action est irr&eacute;versible.')" style="cursor: pointer;">
                             <img class="icon" alt="Supprimer" title="Supprimer" src="../images/supprime.gif" />
                             Supprimer
                             </a>
                         </td>
                         <td align="center">
                             <a href="visualiser_rubrique.php?id=<?php echo $row[0]; ?>">
-                            <img class="icon" alt="Visualiser l'enquete" title="visualiser l'enquete" src="../images/afficher.png" />
+                            <img class="icon" alt="Visualiser la rubrique" title="visualiser la rubrique" src="../images/afficher.png" />
                             Visualiser
                             </a>
                         </td>

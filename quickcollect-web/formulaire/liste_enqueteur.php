@@ -5,8 +5,8 @@
  * @copyright 2013
  */
 
-include_once '../fonctions/connec.inc.php';
-include_once '../fonctions/requetes.php';	
+include_once 'connec.inc.php';
+include_once 'requetes.php';	
     //recuperation de la données envoyée en parametre
     $code = isset($_GET['code'])?$_GET['code']:""; 
 	//$select = "SELECT DISTINCT `PERS_ID` FROM `valeur` where `ENQ_ID`='$code'";
