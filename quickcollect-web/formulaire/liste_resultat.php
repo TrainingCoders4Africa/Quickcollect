@@ -12,14 +12,18 @@ include_once 'PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
 	
     //recuperation de la données envoyée en parametre
     $code = isset($_GET['code'])?$_GET['code']:""; 
-	//$select = "SELECT * FROM `valeur` where `CHILD_ID`='$code' order by `PERS_ID`";
+	
+    //retrouver le libellé de l'enquete
+    $row_lib_enq=mysql_fetch_row(select_enquete($code));
+    $lib_enq=$row_lib_enq[3];
+    
     $result=select_valeurs2($code);
     if(mysql_num_rows($result)!=0){
         //– Go !
         $objPHPExcel = new PHPExcel();
         //– Quelques propriétées phpexcel
-        $objPHPExcel->getProperties()->setCreator("DevZone");
-        $objPHPExcel->getProperties()->setLastModifiedBy("DevZone");
+        $objPHPExcel->getProperties()->setCreator("QuickCollect");
+        $objPHPExcel->getProperties()->setLastModifiedBy("QuickCollect");
         $objPHPExcel->getProperties()->setTitle("Office 2007 XLSX");
         $objPHPExcel->getProperties()->setSubject("Office 2007 XLSX");
         $objPHPExcel->getProperties()->setDescription("Office 2007 XLSX – By DevZone – With PHPExel");
@@ -75,13 +79,16 @@ include_once 'PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
             <?php
             
             //– On nomme notre feuillet
-            $objPHPExcel->getActiveSheet()->setTitle('Exemple');
+            $objPHPExcel->getActiveSheet()->setTitle('Enquete');
             $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-            $objWriter->save('Resultat.xlsx');
+            $fichier_excel = 'Resultat_'.$lib_enq.'.xlsx';
+
+            $objWriter->save($fichier_excel);
+        
         }
         echo "</table>";
         echo "<br />";
-        echo "<a href='download.php?fichier=Resultat.xlsx'><span>Exporter sous format Excel</span></a>";
+        echo "<a href='download.php?fichier=".$fichier_excel."'><span>Exporter sous format Excel</span></a>";
     }else{
         echo "Aucun Résultat";
     }

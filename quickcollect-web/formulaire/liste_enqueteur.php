@@ -19,7 +19,7 @@ include_once 'requetes.php';
             $nom = $rowp[2];
             $prenom= $rowp[3];
             ?>
-            <li><a onclick='fnClickOpen(<?php echo $pcod; ?>)' style="cursor: pointer;"><?php echo "$nom $prenom"; ?></a></li>
+            <li><a onclick='OpenEnqbyenqteur(<?php echo $code; ?>,<?php echo $pcod; ?>)' style="cursor: pointer;"><?php echo "$nom $prenom"; ?></a></li>
             <?php
         }
         echo "</ul>";

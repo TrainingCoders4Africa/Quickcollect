@@ -6,7 +6,7 @@
 ?>
 <?php  
 //$file = "fichier.xml";
-$file = $_GET['fichier'];
+echo $file = $_GET['fichier'];
 // Test to ensure that the file exists. 
 if(!file_exists($file)) die("Désolé, le fichier n'existe pas.");
 header("Content-disposition: attachment; filename=$file");

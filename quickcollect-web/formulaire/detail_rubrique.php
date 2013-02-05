@@ -102,9 +102,8 @@
 				        <tr>
 					       <th><span>Type de Question</span></th>
 					       <td>
-						      <select id="<?php echo 'sel_'.$cpt_ques; ?>" name="<?php echo 'sel_'.$cpt_ques; ?>" onChange="charger(<?php echo $cpt_ques;?>);">
+						      <select id="<?php echo 'sel_'.$cpt_ques; ?>" name="<?php echo 'sel_'.$cpt_ques; ?>" onChange="charger2(<?php echo $cpt_ques;?>);">
 							  <?php 
-								//$req="SELECT * FROM `type_question`";
 								$res=select_type_questions();
 								$i=0;
 								

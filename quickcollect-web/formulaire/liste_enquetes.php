@@ -36,10 +36,11 @@ if(isset($_GET['action']) && ($_GET['action']=='exporter') && (isset($_GET['id']
 </div>
 <hr />
 <form id="tableForm" name="tableForm" action="#" method="POST" class="form-inline well">
+    <center>
     <table border>
         <thead>
             <tr>
-                <th></th>
+                <!--th></th-->
                 <th><a onmouseout="if(document.getElementById('sort_arrow')){ document.getElementById('sort_arrow').src='../images/s_desc.png'; }" onmouseover="if(document.getElementById('sort_arrow')){ document.getElementById('sort_arrow').src='../images/s_asc.png'; }" title="Tri" href="liste_enquetes.php?sort_order=DESC">Libell&eacute;</a></th>
                 <th colspan="6" align="center">Action</th>
             </tr>
@@ -57,10 +58,10 @@ if(isset($_GET['action']) && ($_GET['action']=='exporter') && (isset($_GET['id']
                 while($row=mysql_fetch_row($res)){
                    ?>
                    <tr class="<?php if($i%2) {echo "even";}else{echo "odd";}?>">
-                        <td align="center">
+                        <!--td align="center">
                             <input type="checkbox"/>
                             
-                        </td>
+                        </td-->
                         <th style="width: 50%;">
                             <label><?php echo $row[3]; ?></label>        
                         </th>
@@ -103,7 +104,7 @@ if(isset($_GET['action']) && ($_GET['action']=='exporter') && (isset($_GET['id']
             ?>
         </tbody>
     </table>
-
+    </center>
 </form>
 </div>
 <div style="clear:both;"></div>
